@@ -1,0 +1,838 @@
+/* ==========================================================================
+   1. GLOBÁLNÍ NASTAVENÍ A RESET
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   2. SPOLEČNÁ STRUKTURA
+   ========================================================================== */
+
+/* Hlavička */
+.navbar {
+    padding: 20px 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: bold;
+    border: 2px solid;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.brand-sub {
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-menu a {
+    font-size: 11px;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 1px;
+}
+
+.btn-nav {
+    padding: 8px 16px;
+    border-radius: 3px;
+    color: #fff !important;
+}
+
+/* Hero Sekce */
+.hero {
+    padding: 70px 0;
+    overflow: hidden;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1.1;
+    max-width: 580px;
+}
+
+.hero-title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.benefits-list {
+    list-style: none;
+    margin-bottom: 35px;
+}
+
+.benefits-list li {
+    font-size: 14px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 28px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Obrázek v Hero sekci */
+.hero-image-box {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-photo {
+    width: 100%;
+    max-width: 500px;
+    height: 380px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Spodní Lišta Služeb */
+.services-bar {
+    padding: 45px 0;
+    text-align: center;
+}
+
+.services-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.service-item {
+    flex: 1;
+}
+
+.service-icon {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.service-item h3 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.service-item p {
+    font-size: 12px;
+    opacity: 0.85;
+}
+
+/* Sekce O Nás */
+.about-section {
+    padding: 90px 0;
+    background-color: #fbfbfd;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-photo {
+    width: 100%;
+    max-width: 400px;
+    height: 480px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.about-text {
+    flex: 1.2;
+}
+
+.about-text .subheading {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.about-text h2 {
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about-text p {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.about-feature {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #ffffff;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.feature-thumb {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.about-feature h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.about-feature p {
+    font-size: 13px;
+    margin-bottom: 0;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Sekce Proč my */
+.why-us-section {
+    padding: 95px 0;
+    background-color: #ffffff;
+}
+
+.why-us-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.why-us-content {
+    flex: 1.2;
+}
+
+.why-us-content .subheading {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.why-us-content h2 {
+    font-size: 34px;
+    line-height: 1.3;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.why-lead {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+.why-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.why-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.why-icon {
+    font-size: 24px;
+    padding: 8px 10px;
+    background: #f4f6f8;
+    border-radius: 8px;
+    line-height: 1;
+}
+
+.why-card-text h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.why-card-text p {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.why-us-image-box {
+    flex: 0.9;
+    display: flex;
+    justify-content: center;
+}
+
+.image-wrapper {
+    position: relative;
+    max-width: 420px;
+    width: 100%;
+}
+
+.why-photo {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    display: block;
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: #ffffff;
+    padding: 18px 22px;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+}
+
+.badge-number {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.badge-text {
+    font-size: 11px;
+    font-weight: 600;
+    color: #666;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   3. VARIANTA 1 - MODRÁ & ZLATÁ (Konzervativní, luxusní)
+   ========================================================================== */
+.varianta-1 {
+    --primary-color: #0d233a;   /* Tmavě modrá */
+    --accent-color: #bfa15f;    /* Zlatá */
+    --text-dark: #0d233a;
+}
+
+.varianta-1 .logo-icon { color: var(--primary-color); border-color: var(--accent-color); }
+.varianta-1 .brand-name { color: var(--primary-color); }
+.varianta-1 .brand-sub { color: var(--accent-color); }
+.varianta-1 .btn-nav { background-color: var(--accent-color); }
+.varianta-1 .nav-menu a.active { color: var(--accent-color); }
+
+.varianta-1 .hero-title { color: var(--text-dark); }
+.varianta-1 .hero-title .highlight { color: var(--accent-color); }
+.varianta-1 .hero-subtitle { color: var(--text-dark); }
+.varianta-1 .check-icon { color: var(--accent-color); font-weight: bold; }
+
+.varianta-1 .btn-primary { background-color: var(--accent-color); color: #fff; }
+.varianta-1 .btn-secondary { border: 2px solid var(--primary-color); color: var(--primary-color); }
+
+.varianta-1 .services-bar { background-color: var(--primary-color); color: #ffffff; }
+.varianta-1 .service-item h3 { color: var(--accent-color); }
+.varianta-1 .service-icon { filter: sepia(100%) saturate(300%) hue-rotate(10deg); }
+
+.varianta-1 .about-text .subheading { color: var(--accent-color); }
+.varianta-1 .about-text h2 { color: var(--primary-color); }
+.varianta-1 .about-feature { border-left: 4px solid var(--accent-color); }
+.varianta-1 .about-feature h4 { color: var(--primary-color); }
+
+.varianta-1 .why-us-content .subheading { color: var(--accent-color); }
+.varianta-1 .why-us-content h2 { color: var(--primary-color); }
+.varianta-1 .why-card-text h3 { color: var(--primary-color); }
+.varianta-1 .experience-badge { border-left: 5px solid var(--accent-color); }
+.varianta-1 .badge-number { color: var(--accent-color); }
+
+/* ==========================================================================
+   4. VARIANTA 2 - MODRÁ & TYRKYSOVÁ (Moderní, online, svěží)
+   ========================================================================== */
+.varianta-2 {
+    --primary-color: #16324f;   /* Čistá tmavě modrá */
+    --accent-color: #3a8e9e;    /* Tyrkysová */
+    --text-dark: #16324f;
+}
+
+.varianta-2 .logo-icon { color: var(--primary-color); border-color: var(--primary-color); border-radius: 50% 0 50% 0; }
+.varianta-2 .brand-name { color: var(--primary-color); }
+.varianta-2 .brand-sub { color: #888; }
+.varianta-2 .btn-nav { background-color: var(--accent-color); }
+.varianta-2 .nav-menu a.active { color: var(--accent-color); }
+
+.varianta-2 .hero-title { color: var(--text-dark); font-weight: 400; }
+.varianta-2 .hero-title .highlight { color: var(--accent-color); font-weight: 700; }
+.varianta-2 .hero-subtitle { color: #555; }
+.varianta-2 .check-icon { color: var(--accent-color); background: #e6f4f6; padding: 2px; border-radius: 50%; }
+
+.varianta-2 .btn-primary { background-color: var(--accent-color); color: #fff; }
+.varianta-2 .btn-secondary { border: 1px solid #ccc; color: var(--text-dark); }
+
+.varianta-2 .services-bar { background-color: #f4f6f8; color: #333333; border-top: 1px solid #eaeaea; }
+.varianta-2 .service-item h3 { color: var(--primary-color); }
+
+.varianta-2 .about-text .subheading { color: var(--accent-color); }
+.varianta-2 .about-text h2 { color: var(--primary-color); }
+.varianta-2 .about-feature { border-left: 4px solid var(--accent-color); }
+.varianta-2 .about-feature h4 { color: var(--primary-color); }
+
+.varianta-2 .why-us-content .subheading { color: var(--accent-color); }
+.varianta-2 .why-us-content h2 { color: var(--primary-color); }
+.varianta-2 .why-card-text h3 { color: var(--primary-color); }
+.varianta-2 .experience-badge { border-left: 5px solid var(--accent-color); }
+.varianta-2 .badge-number { color: var(--accent-color); }
+
+/* ==========================================================================
+   5. VARIANTA 3 - ZELENÁ & ZLATÁ (Tradiční, důvěryhodná, bio/eko feeling)
+   ========================================================================== */
+.varianta-3 {
+    --primary-color: #0b2f1d;   /* Lahvově zelená */
+    --accent-color: #c49a45;    /* Sytá zlatá */
+    --text-dark: #111111;
+}
+
+.varianta-3 .logo-icon { color: var(--accent-color); border-color: var(--primary-color); border-radius: 50%; }
+.varianta-3 .brand-name { color: var(--primary-color); font-family: 'Cinzel', serif; }
+.varianta-3 .brand-sub { color: var(--accent-color); }
+.varianta-3 .btn-nav { background-color: var(--accent-color); }
+.varianta-3 .nav-menu a.active { color: var(--primary-color); }
+
+.varianta-3 .hero-title { font-family: 'Cinzel', serif; color: var(--text-dark); }
+.varianta-3 .hero-title .highlight { color: var(--accent-color); font-family: 'Cinzel', serif; }
+.varianta-3 .hero-subtitle { color: var(--primary-color); }
+.varianta-3 .check-icon { color: var(--accent-color); }
+
+.varianta-3 .btn-primary { background-color: var(--primary-color); color: #fff; }
+.varianta-3 .btn-secondary { border: 1px solid #ccc; color: var(--text-dark); }
+
+.varianta-3 .services-bar { background-color: var(--primary-color); color: #ffffff; }
+.varianta-3 .service-item h3 { color: #ffffff; font-weight: 400; }
+.varianta-3 .service-icon { filter: sepia(100%) saturate(200%) hue-rotate(35deg); }
+
+.varianta-3 .about-text .subheading { color: var(--accent-color); }
+.varianta-3 .about-text h2 { color: var(--primary-color); font-family: 'Cinzel', serif; }
+.varianta-3 .about-feature { border-left: 4px solid var(--accent-color); }
+.varianta-3 .about-feature h4 { color: var(--primary-color); }
+
+.varianta-3 .why-us-content .subheading { color: var(--accent-color); }
+.varianta-3 .why-us-content h2 { color: var(--primary-color); font-family: 'Cinzel', serif; }
+.varianta-3 .why-card-text h3 { color: var(--primary-color); font-family: 'Cinzel', serif; }
+.varianta-3 .experience-badge { border-left: 5px solid var(--accent-color); }
+.varianta-3 .badge-number { color: var(--accent-color); }
+
+/* ==========================================================================
+   6. RESPONZIVITA (Mobily a tablety)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero-container, 
+    .about-container,
+    .why-us-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-content,
+    .why-us-content {
+        max-width: 100%;
+    }
+
+    .benefits-list li {
+        justify-content: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image-box,
+    .why-us-image-box {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .about-feature {
+        text-align: left;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .why-card {
+        text-align: left;
+    }
+
+    .experience-badge {
+        bottom: 15px;
+        left: 15px;
+    }
+
+    .services-container {
+        flex-wrap: wrap;
+    }
+
+    .service-item {
+        flex: 1 1 40%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-photo,
+    .profile-photo,
+    .why-photo {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .service-item {
+        flex: 1 1 100%;
+    }
+}
+/* ==========================================================================
+   8. SEKCE KONTAKT A FORMULÁŘ
+   ========================================================================== */
+.contact-section {
+    padding: 95px 0;
+    background-color: #f7f9fb;
+}
+
+.contact-container {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* Levý sloupec kontaktů */
+.contact-info {
+    flex: 1;
+}
+
+.contact-info .subheading {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.contact-info h2 {
+    font-size: 34px;
+    line-height: 1.3;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.contact-desc {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.c-icon {
+    font-size: 20px;
+    width: 44px;
+    height: 44px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-item strong {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #888;
+}
+
+.contact-item a, 
+.contact-item span {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+}
+
+.contact-photo-box {
+    margin-top: 25px;
+}
+
+.contact-card-img {
+    width: 100%;
+    max-width: 440px;
+    height: 220px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+/* Pravý sloupec - Formulář */
+.contact-form-card {
+    flex: 1.1;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+}
+
+.contact-form-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.contact-form-card p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fcfcfc;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(191, 161, 95, 0.15);
+    background-color: #fff;
+}
+
+.btn-submit {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+}
+
+/* Patička */
+.footer {
+    padding: 25px 0;
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+}
+
+/* Propojení stylů s variantami */
+.varianta-1 .contact-info .subheading { color: var(--accent-color); }
+.varianta-1 .contact-info h2 { color: var(--primary-color); }
+.varianta-1 .contact-form-card h3 { color: var(--primary-color); }
+.varianta-1 .contact-item a:hover { color: var(--accent-color); }
+
+.varianta-2 .contact-info .subheading { color: var(--accent-color); }
+.varianta-2 .contact-info h2 { color: var(--primary-color); }
+.varianta-2 .contact-form-card h3 { color: var(--primary-color); }
+.varianta-2 .contact-item a:hover { color: var(--accent-color); }
+
+.varianta-3 .contact-info .subheading { color: var(--accent-color); }
+.varianta-3 .contact-info h2 { color: var(--primary-color); font-family: 'Cinzel', serif; }
+.varianta-3 .contact-form-card h3 { color: var(--primary-color); font-family: 'Cinzel', serif; }
+.varianta-3 .contact-item a:hover { color: var(--accent-color); }
+
+/* Responzivita kontaktu */
+@media (max-width: 992px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .contact-card-img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .contact-form-card {
+        padding: 25px 20px;
+    }
+}
